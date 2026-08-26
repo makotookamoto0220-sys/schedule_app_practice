@@ -1,0 +1,40 @@
+<h1>ユーザー一覧</h1>
+
+<p>ユーザー合計数:<%= @users.count %>人 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>メール</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user|%>
+      <tr>
+
+       <td><%= user.id %></td>
+       <td><%= user.name %></td>
+       <td><%= user.email %></td>
+       <td>
+         <%= link_to "詳細", user_path(user) %>
+         <%= link_to "編集", edit_user_path(user) %>
+         <%= link_to "削除", user_path(user), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+       
+       
+       </td>
+      </tr>
+   <% end %>
+  
+  
+  
+  </tbody>
+
+
+
+</table>
+
+<%= link_to "新規追加", new_user_path %>

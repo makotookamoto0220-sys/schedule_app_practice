@@ -1,0 +1,19 @@
+<% if @user.errors.any? %>
+  <div style="color: red;">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div>
+  <%= form.label :name, "名前" %>
+  <%= form.text_field :name %>
+</div>
+
+<div>
+  <%= form.label :email, "メール" %>
+  <%= form.text_field :email %>
+</div>
